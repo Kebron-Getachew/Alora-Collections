@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-pale: #F5E6C0;
+  --gold-dark: #8B6914;
+  --gold-deep: #5C4209;
+  --cream: #FAF6EE;
+  --cream-dark: #F0E8D8;
+  --warm-dark: #1A1208;
+  --brown-mid: #3D2B0E;
+  --text-muted: #7A6540;
+  --text-light: rgba(250, 246, 238, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--warm-dark);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+* { cursor: none !important; }
+
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: none; font-family: inherit; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--warm-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); }
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: var(--warm-dark);
+}

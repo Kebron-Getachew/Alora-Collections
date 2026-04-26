@@ -1,0 +1,119 @@
+.features {
+  background: #110d05;
+  padding: 100px 80px;
+  position: relative;
+  border-top: 1px solid rgba(201, 168, 76, 0.08);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.features-label-wrap {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 48px 32px;
+  border: 1px solid rgba(201, 168, 76, 0.06);
+  transition: background 0.4s, border-color 0.4s;
+  position: relative;
+}
+
+.feature-item:hover {
+  background: rgba(201, 168, 76, 0.04);
+  border-color: rgba(201, 168, 76, 0.15);
+}
+
+/* Corner accents */
+.feature-item::before,
+.feature-item::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(201, 168, 76, 0.3);
+  border-style: solid;
+  transition: border-color 0.4s;
+}
+
+.feature-item::before {
+  top: 12px; left: 12px;
+  border-width: 1px 0 0 1px;
+}
+
+.feature-item::after {
+  bottom: 12px; right: 12px;
+  border-width: 0 1px 1px 0;
+}
+
+.feature-item:hover::before,
+.feature-item:hover::after {
+  border-color: var(--gold);
+}
+
+.feature-icon-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon {
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.feature-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  transition: transform 0.4s ease, border-color 0.4s;
+}
+
+.feature-item:hover .feature-icon-ring {
+  transform: scale(1.2);
+  border-color: rgba(201, 168, 76, 0.5);
+}
+
+.feature-title {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.feature-desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(250, 246, 238, 0.35);
+}
+
+@media (max-width: 900px) {
+  .features { padding: 80px 28px; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 540px) {
+  .features-grid { grid-template-columns: 1fr; }
+}

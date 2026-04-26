@@ -1,0 +1,36 @@
+.marquee-wrap {
+  background: var(--gold-dark);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 0;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-item {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(250, 246, 238, 0.85);
+  padding: 0 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.marquee-dot {
+  color: var(--gold-light);
+  font-size: 8px;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
