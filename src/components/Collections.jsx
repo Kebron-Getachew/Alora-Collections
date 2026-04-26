@@ -1,61 +1,73 @@
 import React, { useState } from 'react';
 import useInView from '../hooks/useInView';
+import ring from '../assets/rings.JPG'
+import armcuff from '../assets/arm cuff.JPG'
+import bangle from '../assets/bangle.JPG'
+import habeshaset from '../assets/habesha set.JPG'
+import watch from '../assets/watch.JPG'
+import bangles from '../assets/bangles.JPG'
 import './Collections.css';
 
 const products = [
   {
     id: 1,
-    name: 'Ethiopian Cross Ring',
+    name: 'Minimalistic Gold Rings',
     category: 'Rings',
-    price: '$145',
+    price: '300 ETB',
     tag: 'Bestseller',
     gradient: 'linear-gradient(145deg, #c8a040 0%, #8B6914 60%, #5C4209 100%)',
     icon: '💍',
+    image: ring,
   },
   {
     id: 2,
-    name: 'Habesha Pendant',
+    name: 'Arm Cuffs',
     category: 'Necklaces',
-    price: '$220',
+    price: '800 ETB',
     tag: 'New',
     gradient: 'linear-gradient(145deg, #e8c460 0%, #c9a040 50%, #8B6914 100%)',
     icon: '📿',
+    image: armcuff,
   },
   {
     id: 3,
-    name: 'Gold Link Bracelet',
+    name: 'Habesha Gold Set',
     category: 'Bracelets',
-    price: '$98',
+    price: '3000 ETB',
     tag: null,
     gradient: 'linear-gradient(145deg, #d4b060 0%, #b08020 50%, #7a5c10 100%)',
     icon: '✨',
+    image: habeshaset,
   },
   {
     id: 4,
-    name: 'Filigree Earrings',
+    name: 'Bangle',
     category: 'Earrings',
-    price: '$115',
+    price: '1000 ETB',
     tag: 'New',
     gradient: 'linear-gradient(145deg, #f0d080 0%, #d4a840 50%, #9a7020 100%)',
     icon: '🌟',
+    image: bangle,
   },
   {
     id: 5,
-    name: 'Tsinat Choker',
+    name: 'Watches',
     category: 'Necklaces',
-    price: '$185',
+    price: '1500 ETB',
     tag: null,
     gradient: 'linear-gradient(145deg, #b89040 0%, #8a6810 50%, #5C4209 100%)',
     icon: '🔮',
+    image: watch,
   },
   {
     id: 6,
-    name: 'Melkam Cuff',
+    name: 'Vintage Bangles',
     category: 'Bracelets',
-    price: '$130',
+    price: '1000 ETB',
     tag: 'Bestseller',
     gradient: 'linear-gradient(145deg, #e0c060 0%, #c09030 50%, #8B6914 100%)',
     icon: '⭐',
+    image: bangles, 
   },
 ];
 
@@ -119,10 +131,9 @@ function ProductCard({ product, index }) {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="card-img-wrap">
-        <div
-          className="card-bg"
-          style={{ background: product.gradient }}
-        >
+        <div className="card-bg">
+            <img src = {product.image} alt = {product.name} style = {{width: '100%', height:'100%', objectFit:'cover' }}/>
+        
           <span className="card-icon">{product.icon}</span>
           <div className={`card-shine ${hovered ? 'active' : ''}`} />
         </div>

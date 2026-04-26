@@ -1,145 +1,63 @@
-.newsletter {
+.contact-section {
   position: relative;
-  padding: 120px 80px;
-  background: linear-gradient(135deg, #1e1508 0%, #110d05 50%, #0a0703 100%);
-  text-align: center;
-  overflow: hidden;
-  border-top: 1px solid rgba(201, 168, 76, 0.08);
-}
-
-.newsletter::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.07) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.newsletter-deco-left,
-.newsletter-deco-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 120px;
-  color: rgba(201, 168, 76, 0.03);
-  font-family: 'Cinzel', serif;
-  pointer-events: none;
-  user-select: none;
-}
-
-.newsletter-deco-left { left: 5%; }
-.newsletter-deco-right { right: 5%; }
-
-.newsletter-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-.newsletter-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(38px, 5vw, 64px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--cream);
-  margin: 12px 0 20px;
-}
-
-.newsletter-title em {
-  font-style: italic;
-  color: var(--gold-light);
-}
-
-.newsletter-sub {
-  font-size: 13px;
-  line-height: 1.8;
-  color: rgba(250, 246, 238, 0.4);
-  margin-bottom: 48px;
-  letter-spacing: 0.5px;
-}
-
-.newsletter-form {
-  display: flex;
-  max-width: 440px;
-  margin: 0 auto;
-  border: 1px solid rgba(201, 168, 76, 0.25);
-}
-
-.newsletter-input {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.03);
-  border: none;
-  padding: 18px 24px;
-  font-family: 'Jost', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: var(--cream);
-  outline: none;
-  transition: background 0.3s;
-}
-
-.newsletter-input::placeholder {
-  color: rgba(250, 246, 238, 0.25);
-}
-
-.newsletter-input:focus {
-  background: rgba(201, 168, 76, 0.04);
-}
-
-.newsletter-btn {
-  background: var(--gold);
-  color: var(--warm-dark);
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  padding: 18px 28px;
-  white-space: nowrap;
-  transition: background 0.3s;
-  border: none;
-}
-
-.newsletter-btn:hover {
-  background: var(--gold-light);
-}
-
-.newsletter-success {
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 10, 3, 0.45);
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 40px;
+}
+
+.contact-title {
   font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 20px;
-  color: var(--gold-light);
-  padding: 24px;
-  border: 1px solid rgba(201, 168, 76, 0.25);
-  max-width: 440px;
-  margin: 0 auto;
-  animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.success-icon {
-  font-size: 14px;
-  color: var(--gold);
-}
-
-.newsletter-note {
-  margin-top: 16px;
-  font-size: 11px;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 48px;
   letter-spacing: 1px;
-  color: rgba(250, 246, 238, 0.2);
 }
 
-@media (max-width: 768px) {
-  .newsletter { padding: 80px 28px; }
-  .newsletter-form { flex-direction: column; }
-  .newsletter-btn { width: 100%; padding: 16px; }
-  .newsletter-deco-left, .newsletter-deco-right { display: none; }
+.contact-title em {
+  font-style: italic;
+  color: var(--cream);
+}
+
+.contact-item {
+  margin-bottom: 28px;
+}
+
+.contact-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: rgba(250, 246, 238, 0.75);
 }
