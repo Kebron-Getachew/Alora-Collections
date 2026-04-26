@@ -1,29 +1,21 @@
 .collections {
-  padding: 120px 80px;
+  padding: 100px 0 80px;
   background: var(--warm-dark);
-  position: relative;
-}
-
-.collections::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%; transform: translateX(-50%);
-  width: 1px; height: 80px;
-  background: linear-gradient(to bottom, transparent, rgba(201, 168, 76, 0.3));
+  overflow: hidden;
 }
 
 .collections-header {
-  text-align: center;
-  margin-bottom: 64px;
+  text-align: left;
+  margin-bottom: 60px;
+  padding: 0 80px;
 }
 
 .collections-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(44px, 6vw, 80px);
+  font-size: clamp(42px, 5vw, 72px);
   font-weight: 300;
   color: var(--cream);
-  margin-bottom: 40px;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .collections-title em {
@@ -31,191 +23,127 @@
   color: var(--gold-light);
 }
 
-/* Filter tabs */
-.filter-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  flex-wrap: wrap;
-}
-
-.filter-tab {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(250, 246, 238, 0.99);
-  padding: 10px 24px;
-  border: 1px solid transparent;
-  transition: all 0.3s;
-}
-
-.filter-tab:hover {
-  color: var(--gold-light);
-  border-color: rgba(201, 168, 76, 0.2);
-}
-
-.filter-tab.active {
-  color: var(--gold);
-  border-color: rgba(201, 168, 76, 0.4);
-  background: rgba(201, 168, 76, 0.05);
-}
-
-/* Grid */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-/* Card */
-.product-card {
+/* Stage */
+.cine-stage {
   position: relative;
-}
-
-.card-img-wrap {
-  position: relative;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-}
-
-.card-bg {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.6s ease;
+  height: 520px;
+  perspective: 1200px;
+}
+
+/* Cards */
+.cine-card {
+  position: absolute;
+  width: 300px;
+  cursor: pointer;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.55s ease,
+              filter 0.55s ease;
+  will-change: transform, opacity;
+}
+
+.cine-card-img {
+  width: 300px;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
-.product-card:hover .card-bg {
-  transform: scale(1.04);
+.cine-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.card-icon {
-  font-size: 64px;
-  opacity: 0.2;
-  user-select: none;
+.cine-card-icon {
+  font-size: 52px;
+  opacity: 0.15;
+  color: var(--cream);
 }
 
-.card-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.card-shine.active {
-  transform: translateX(100%);
-}
-
-/* Tag */
-.card-tag {
+.cine-shop-tag {
   position: absolute;
   top: 16px;
   left: 16px;
-  font-family: 'Cinzel', serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--warm-dark);
   background: var(--gold);
-  padding: 6px 12px;
-}
-
-/* Hover panel */
-.card-hover-panel {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-}
-
-.card-hover-panel.active {
-  transform: translateY(0);
-}
-
-.btn-add-to-cart {
-  flex: 1;
-  background: var(--warm-dark);
-  color: var(--gold-light);
+  color: var(--warm-dark);
   font-family: 'Cinzel', serif;
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  padding: 16px;
-  transition: background 0.3s;
-  border: none;
+  padding: 7px 16px;
+  border-radius: 20px;
 }
 
-.btn-add-to-cart:hover {
-  background: var(--gold-dark);
+.cine-card-info {
+  padding: 16px 4px 0;
+  text-align: center;
+}
+
+.cine-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
   color: var(--cream);
+  margin-bottom: 4px;
 }
 
-.btn-wishlist {
-  width: 52px;
-  background: rgba(26, 18, 8, 0.9);
-  color: rgba(250, 246, 238, 0.6);
+.cine-card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--gold-light);
+}
+
+/* Controls */
+.cine-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 0;
-  transition: color 0.3s, background 0.3s;
-  border: none;
+  gap: 28px;
+  margin-top: 48px;
 }
 
-.btn-wishlist:hover {
-  color: var(--gold);
-  background: rgba(26, 18, 8, 1);
-}
-
-/* Card info */
-.card-info {
-  padding: 20px 4px 28px;
+.cine-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--gold-light);
+  background: rgba(26, 18, 8, 0.6);
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s, opacity 0.3s;
+  backdrop-filter: blur(8px);
 }
 
-.card-category {
+.cine-btn:hover:not(:disabled) {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--gold);
+}
+
+.cine-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.cine-counter {
   font-family: 'Cinzel', serif;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.7;
+  color: rgba(250, 246, 238, 0.35);
 }
 
-.card-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.2;
-}
-
-.card-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  color: rgba(201, 168, 76, 0.7);
-  margin-top: 4px;
-}
-
-/* Footer link */
+/* View all */
 .collections-footer {
   text-align: center;
-  margin-top: 72px;
+  margin-top: 40px;
 }
 
 .btn-view-all {
@@ -223,34 +151,28 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 20px;
-  color: rgba(250, 246, 238, 0.5);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(250, 246, 238, 0.55);
   transition: color 0.3s;
 }
 
-.btn-view-all:hover {
-  color: var(--gold-light);
-}
+.btn-view-all:hover { color: var(--gold-light); }
 
 .btn-line {
   width: 40px;
   height: 1px;
-  background: rgba(201, 168, 76, 0.4);
-  transition: width 0.3s ease;
+  background: currentColor;
+  transition: width 0.3s;
 }
 
-.btn-view-all:hover .btn-line {
-  width: 80px;
-  background: var(--gold);
-}
+.btn-view-all:hover .btn-line { width: 80px; }
 
-@media (max-width: 900px) {
-  .collections { padding: 80px 28px; }
-  .products-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 540px) {
-  .products-grid { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .collections-header { padding: 0 28px; }
+  .cine-stage { height: 440px; }
+  .cine-card { width: 240px; }
+  .cine-card-img { width: 240px; height: 320px; }
 }

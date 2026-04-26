@@ -34,17 +34,11 @@ export default function Hero() {
 
       {/* Vertical side text */}
       <div className="hero-side-text left">
-        <span>Handcrafted · African Heritage · Luxury</span>
+        <span> Traditional· Elegant · Luxury</span>
       </div>
-      <div className="hero-side-text right">
-        <span>New Collection 2026</span>
-      </div>
+      
 
-      {/* Logo watermark */}
-      <div className={`hero-logo-mark ${loaded ? 'visible' : ''}`}>
-        <img src={logoImg} alt="Alora" />
-      </div>
-
+    
       {/* Main content */}
       <div className="hero-content">
         <div className={`hero-tag ${loaded ? 'visible' : ''}`}>
@@ -54,13 +48,13 @@ export default function Hero() {
         </div>
 
         <h1 className={`hero-title ${loaded ? 'visible' : ''}`}>
-          <span className="title-line line-1">Adorned</span>
+          <span className="title-line line-1">Heritage</span>
           <span className="title-line line-2">in <em>Gold</em></span>
-          <span className="title-line line-3">Born for You</span>
+          <span className="title-line line-3">Made for You</span>
         </h1>
 
         <p className={`hero-subtitle ${loaded ? 'visible' : ''}`}>
-          Where ancient African artistry meets modern luxury
+          Where tradition becomes timeless
         </p>
 
         <div className={`hero-actions ${loaded ? 'visible' : ''}`}>

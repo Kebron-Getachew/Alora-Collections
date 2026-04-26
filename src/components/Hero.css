@@ -6,7 +6,9 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 80px;
+  padding-bottom: 2px;
 }
 
 /* BG image */
@@ -159,7 +161,17 @@
   margin-bottom: 28px;
   overflow: hidden;
 }
+.logo-container {
+  display: flex;
+  align-items: flex - start;
+  padding-left: 80px;
+  gap: 10px; /* space between logo and text */
+}
 
+.logo-img {
+  width: 40px; /* adjust size */
+  height: auto;
+}
 .title-line {
   display: block;
   opacity: 0;

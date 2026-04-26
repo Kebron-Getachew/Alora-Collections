@@ -1,14 +1,14 @@
 .footer {
   background: #0a0703;
-  padding: 100px 80px 48px;
+  padding: 52px 80px 28px;
   border-top: 1px solid rgba(201, 168, 76, 0.08);
 }
 
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 64px;
-  margin-bottom: 64px;
+  gap: 40px;
+  margin-bottom: 36px;
 }
 
 /* Brand column */
@@ -42,11 +42,11 @@
 }
 
 .footer-brand-desc {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.8;
   color: rgba(250, 246, 238, 0.3);
   max-width: 260px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .footer-socials {
@@ -82,10 +82,10 @@
   margin-bottom: 28px;
 }
 
-.footer-col ul { display: flex; flex-direction: column; gap: 14px; }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
 
 .footer-col a {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(250, 246, 238, 0.35);
   letter-spacing: 0.5px;
   transition: color 0.3s;
@@ -116,7 +116,7 @@
 .footer-divider {
   height: 1px;
   background: rgba(201, 168, 76, 0.07);
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .footer-bottom {

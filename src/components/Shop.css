@@ -1,0 +1,117 @@
+.shop {
+  min-height: 100vh;
+  background: var(--warm-dark);
+  padding: 140px 80px 100px;
+}
+
+.shop-header {
+  margin-bottom: 56px;
+}
+
+.shop-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+.shop-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 40px;
+}
+
+.shop-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.shop-filter {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(250, 246, 238, 0.5);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 8px 20px;
+  transition: all 0.3s;
+  background: none;
+}
+
+.shop-filter:hover {
+  color: var(--gold-light);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.shop-filter.active {
+  background: var(--gold);
+  color: var(--warm-dark);
+  border-color: var(--gold);
+}
+
+/* Grid — small squares like the inspo */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.shop-card {
+  cursor: none;
+}
+
+.shop-card-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.shop-card:hover .shop-card-img {
+  transform: translateY(-4px);
+}
+
+.shop-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shop-card-icon {
+  font-size: 32px;
+  opacity: 0.15;
+  color: var(--cream);
+}
+
+.shop-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.shop-card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-light);
+}
+
+@media (max-width: 1100px) {
+  .shop-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .shop { padding: 120px 28px 80px; }
+  .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
