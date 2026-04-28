@@ -6,10 +6,11 @@ import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import About from './components/About';
 import Collections from './components/Collections';
-import Elegance from './components/elegance';
+
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import Shop from './components/Shop';
+import CollectionCategories from './components/CollectionCategories'
 import './App.css';
 
 function Home() {
@@ -17,9 +18,9 @@ function Home() {
     <>
       <Hero />
       <Marquee />
-      <About />
       <Collections />
-      <elegance />
+      <About />
+      <CollectionCategories/>
       <Newsletter />
     </>
   );

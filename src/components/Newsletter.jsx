@@ -1,5 +1,5 @@
 import React from 'react';
-import contactImg from '../assets/contact.JPG';
+import contactImg from '../assets/contact.jpeg';
 import useInView from '../hooks/useInView';
 import './Newsletter.css';
 

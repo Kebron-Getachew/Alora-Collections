@@ -29,14 +29,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 520px;
-  perspective: 1200px;
+  height: 700px;
+  perspective: 1600px;
 }
 
 /* Cards */
 .cine-card {
   position: absolute;
-  width: 300px;
+  width: 400px;
   cursor: pointer;
   transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               opacity 0.55s ease,
@@ -45,8 +45,8 @@
 }
 
 .cine-card-img {
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 600px;
   border-radius: 16px;
   overflow: hidden;
   display: flex;

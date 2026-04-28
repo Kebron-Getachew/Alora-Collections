@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="footer-brand-name">ALORA</div>
           <div className="footer-brand-tag">Collections</div>
           <p className="footer-brand-desc">
-            Luxury African-inspired jewelry for the woman who wears her story with pride.
+            Luxury for the woman who wears her story with pride.
           </p>
           <div className="footer-socials">
             <a href="#" className="social-link" aria-label="Instagram">
@@ -69,7 +69,7 @@ export default function Footer() {
           © 2026 Alora Collections. All rights reserved.
         </div>
         <div className="footer-bottom-right">
-          <span>Made with love · African Heritage</span>
+          <span>Made with love </span>
         </div>
       </div>
     </footer>

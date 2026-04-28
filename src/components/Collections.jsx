@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import useInView from '../hooks/useInView';
+import anklet from '../assets/anklet.JPG'
+import armcuff from '../assets/arm cuff.JPG'
+import bangle from '../assets/bangle 1.JPG'
+import crossset from '../assets/cross set.JPG'
+import earrings from '../assets/earrings.JPG'
+import habeshabangle from '../assets/habesha bangle.JPG'
+import habeshaset from '../assets/habesha set.JPG'
+import rings from '../assets/ringssss.JPG'
+
 import './Collections.css';
 
 const products = [
-  { id: 1, name: 'Ethiopian Cross Ring', category: 'Rings', price: '$145', image: null },
-  { id: 2, name: 'Habesha Pendant', category: 'Necklaces', price: '$220', image: null },
-  { id: 3, name: 'Gold Link Bracelet', category: 'Bracelets', price: '$98', image: null },
-  { id: 4, name: 'Filigree Earrings', category: 'Earrings', price: '$115', image: null },
-  { id: 5, name: 'Tsinat Choker', category: 'Necklaces', price: '$185', image: null },
-  { id: 6, name: 'Melkam Cuff', category: 'Bracelets', price: '$130', image: null },
+  { id: 1, name: 'Anklet', category: 'Rings', price: '1450 ETB', image: anklet },
+  { id: 2, name: 'Arm Cuffs', category: 'Necklaces', price: '600 ETB', image: armcuff },
+  { id: 3, name: 'Rings', category: 'Bracelets', price: '300 ETB', image: rings },
+  { id: 4, name: 'Earrings', category: 'Earrings', price: '200 ETB', image: earrings },
+  { id: 5, name: 'Habesha Set', category: 'Necklaces', price: '3000 ETB', image: habeshaset },
+  { id: 6, name: 'Bangle', category: 'Bracelets', price: '1300 ETB', image: bangle },
 ];
 
 const gradients = [
@@ -48,15 +57,16 @@ export default function Collections() {
               className={`cine-card ${isActive ? 'cine-active' : ''}`}
               style={{
                 transform: `
-                  translateX(calc(${offset} * 220px))
-                  scale(${isActive ? 1 : 0.75 - Math.abs(offset) * 0.05})
-                  translateZ(${isActive ? '0px' : '-100px'})
+                  translateX(calc(${offset} * 280px))
+                  translateY(calc(${offset} * -80px))
+                  scale(${isActive ? 1 : 0.82 - Math.abs(offset) * 0.04})
+                  rotate(${offset * 6}deg)
                 `,
-                opacity: isVisible ? (isActive ? 1 : 0.45 - Math.abs(offset) * 0.1) : 0,
+                opacity: isVisible ? (isActive ? 1 : 0.75 - Math.abs(offset) * 0.1) : 0,
                 zIndex: 10 - Math.abs(offset),
                 filter: isActive 
                 ? 'none' 
-                : `brightness(${0.5 - Math.abs(offset) * 0.05})`,
+                : `brightness(${0.75 - Math.abs(offset) * 0.08})`,
                 pointerEvents: isVisible ? 'auto' : 'none',
               }}
               onClick={() => !isActive && setActive(i)}

@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/hero.jpeg';
+import aboutImg from '../assets/about.jpeg';
 import useInView from '../hooks/useInView';
 import './About.css';
 
@@ -10,18 +10,18 @@ export default function About() {
     <section className="about" id="about" ref={ref}>
       {/* Full bleed image background */}
       <div className="about-img-wrap">
-        <img src={heroImg} alt="Alora Jewelry" className="about-img" />
+        <img src={aboutImg} alt="Alora Jewelry" className="about-img" />
         <div className="about-img-overlay" />
       </div>
 
       {/* Content panel floated right */}
       <div className={`about-panel ${visible ? 'visible' : ''}`}>
         <div className="about-panel-inner">
-          <div className="section-label">Our Heritage</div>
+          <div className="section-label">Our Story</div>
           <h2 className="about-title">
-            Quick and<br />
-            <em>hassle-free</em><br />
-            shopping
+            Born from<br />
+            <em>Passion</em><br />
+            & Purpose
           </h2>
           <div className="about-divider">
             <span />
@@ -29,10 +29,10 @@ export default function About() {
             <span />
           </div>
           <p className="about-body">
-            Every Alora piece is a celebration of culture and craftsmanship. We blend ancient African artistry with modern luxury — jewelry that carries meaning, beauty, and soul.
+            Alora started the way the best things do, with a dream and a little courage. As a college student looking for a side hustle, the answer was always there: jewelry.
           </p>
           <p className="about-body" style={{ marginTop: '16px' }}>
-            Shop with confidence. Fast delivery, easy returns, and a team that truly cares about your experience.
+             Deeply rooted in Ethiopian tradition and a love for timeless elegance, Alora Collections was born, a small business with a big heart, where every piece tells a story of heritage, beauty, and pride.
           </p>
           <a href="#collections" className="btn-about">
             <span>Shop the Collection</span>
