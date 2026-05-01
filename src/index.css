@@ -149,3 +149,88 @@ h1, h2, h3, h4 {
 .marquee-item {
   color: rgba(250, 246, 238, 0.95);
 }
+/* ── WHITE TEXT FIXES ── */
+
+/* Hero - Discover Our Story */
+.btn-hero-ghost {
+  color: rgba(250, 246, 238, 0.95) !important;
+  border-bottom-color: rgba(250, 246, 238, 0.4) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 18px !important;
+}
+
+/* Collections - View All Pieces */
+.btn-view-all {
+  color: rgba(250, 246, 238, 0.95) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 13px !important;
+  letter-spacing: 3px !important;
+}
+
+/* About - body text */
+.about-body {
+  color: rgba(250, 246, 238, 0.92) !important;
+  font-size: 14px !important;
+}
+
+/* Shop the Collection button */
+.btn-about {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 13px !important;
+  letter-spacing: 3px !important;
+  color: rgba(250, 246, 238, 0.95) !important;
+  border-color: rgba(201, 168, 76, 0.6) !important;
+}
+
+/* Collection Categories descriptions */
+.col-cat-desc {
+  color: rgba(250, 246, 238, 0.92) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* Contact section */
+.contact-label {
+  color: #fff !important;
+}
+
+.contact-value {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 15px !important;
+}
+
+/* Footer - all text white */
+.footer-col a {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.footer-col a:hover {
+  color: var(--gold-light) !important;
+}
+
+.footer-col-title {
+  font-family: 'Raleway', sans-serif !important;
+  color: var(--gold-light) !important;
+}
+
+.footer-brand-desc {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.footer-bottom-right {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-family: 'Raleway', sans-serif !important;
+}
+
+.footer-brand-tag {
+  color: rgba(201, 168, 76, 0.7) !important;
+  font-family: 'Raleway', sans-serif !important;
+}
