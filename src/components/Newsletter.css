@@ -12,15 +12,27 @@
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 120%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 50%;
 }
 
 .contact-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 10, 3, 0.45);
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 10, 3, 0.95) 0%,     /* strong fade at the very top */
+    rgba(15, 10, 3, 0.2) 25%,     /* quickly becomes transparent */
+    rgba(15, 10, 3, 0.1) 55%,
+    rgba(15, 10, 3, 0.9) 100%
+  ),
+  linear-gradient(
+    to right,
+    rgba(15, 10, 3, 0.1) 0%,
+    rgba(15, 10, 3, 0.2) 55%,
+    rgba(15, 10, 3, 0.9) 100%
+  );
 }
 
 .contact-content {
@@ -33,14 +45,14 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 400;
-  color: var(--cream);
+  color: var(--gold-light);
   margin-bottom: 48px;
   letter-spacing: 1px;
 }
 
 .contact-title em {
   font-style: italic;
-  color: var(--cream);
+  color: var(--gold);
 }
 
 .contact-item {
@@ -51,7 +63,7 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 400;
-  color: var(--cream);
+  color: var(--gold-light);
   margin-bottom: 4px;
 }
 
@@ -59,5 +71,5 @@
   font-family: 'Jost', sans-serif;
   font-size: 14px;
   letter-spacing: 1px;
-  color: rgba(250, 246, 238, 0.75);
+  color: rgba(232, 201, 122, 0.7);
 }

@@ -24,10 +24,17 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(15, 10, 3, 0.35) 0%,
-    rgba(15, 10, 3, 0.85) 55%,
+    to bottom,
+    rgba(15, 10, 3, 0.95) 0%,     /* strong fade at the very top */
+    rgba(15, 10, 3, 0.1) 25%,     /* quickly becomes transparent */
+    rgba(15, 10, 3, 0.1) 55%,
     rgba(15, 10, 3, 0.9) 100%
+  ),
+  linear-gradient(
+    to right,
+    rgba(15, 10, 3, 0.1) 0%,
+    rgba(15, 10, 3, 0.85) 55%,
+    rgba(15, 10, 3, 0.97) 100%
   );
 }
 

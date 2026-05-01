@@ -27,7 +27,7 @@ html {
 body {
   background: var(--warm-dark);
   color: var(--cream);
-  font-family: 'Jost', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
   cursor: none;
@@ -50,4 +50,102 @@ img { display: block; max-width: 100%; }
 ::selection {
   background: var(--gold);
   color: var(--warm-dark);
+}
+
+/* Global font overrides */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.nav-logo .logo-alora,
+.footer-brand-name,
+.section-label,
+.filter-tab,
+.shop-filter,
+.btn-hero-primary,
+.btn-about,
+.col-cat-tag,
+.col-cat-btn,
+.cine-counter,
+.card-category,
+.scroll-card-name,
+.contact-label,
+.contact-title,
+.footer-col-title {
+  font-family: 'Raleway', sans-serif;
+}
+
+.hero-title,
+.collections-title,
+.about-title,
+.col-cat-name,
+.newsletter-title,
+.contact-title,
+.testimonial-text,
+.elegance-heading,
+.shop-title,
+.shop-sub,
+.card-name,
+.cine-card-name,
+.scroll-card-name,
+.footer-brand-tag,
+.elegance-brand span,
+.t-quote {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Small text brightness boost */
+.nav-links a {
+  color: rgba(250, 246, 238, 0.85);
+}
+
+.hero-subtitle {
+  color: rgba(250, 246, 238, 0.7);
+}
+
+.btn-ghost {
+  color: rgba(250, 246, 238, 0.8);
+}
+
+.about-body {
+  color: rgba(250, 246, 238, 0.75);
+}
+
+.col-cat-desc {
+  color: rgba(250, 246, 238, 0.75);
+}
+
+.feature-desc {
+  color: rgba(250, 246, 238, 0.7);
+}
+
+.footer-col a {
+  color: rgba(250, 246, 238, 0.8);
+}
+
+.footer-brand-desc {
+  color: rgba(250, 246, 238, 0.75);
+}
+
+.footer-copy {
+  color: rgba(250, 246, 238, 0.6);
+}
+
+.footer-bottom-right {
+  color: rgba(201, 168, 76, 0.75);
+}
+
+.contact-value {
+  color: rgba(250, 246, 238, 0.85);
+}
+
+.scroll-card-price,
+.cine-card-price,
+.card-price,
+.shop-card-price {
+  color: var(--gold-light);
+}
+
+.marquee-item {
+  color: rgba(250, 246, 238, 0.95);
 }
