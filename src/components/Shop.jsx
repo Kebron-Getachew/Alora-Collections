@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './Shop.css';
 
 const allProducts = [
-  { id: 1, name: 'Ethiopian Cross Ring', category: 'Rings', price: '$145', image: null },
-  { id: 2, name: 'Habesha Pendant', category: 'Necklaces', price: '$220', image: null },
-  { id: 3, name: 'Gold Link Bracelet', category: 'Bracelets', price: '$98', image: null },
-  { id: 4, name: 'Filigree Earrings', category: 'Earrings', price: '$115', image: null },
-  { id: 5, name: 'Tsinat Choker', category: 'Necklaces', price: '$185', image: null },
-  { id: 6, name: 'Melkam Cuff', category: 'Bracelets', price: '$130', image: null },
-  { id: 7, name: 'Adwa Ring', category: 'Rings', price: '$160', image: null },
-  { id: 8, name: 'Sun Pendant', category: 'Necklaces', price: '$175', image: null },
-  { id: 9, name: 'Chain Earrings', category: 'Earrings', price: '$90', image: null },
-  { id: 10, name: 'Selam Bangle', category: 'Bracelets', price: '$110', image: null },
+  { id: 1, name: 'Ethiopian Cross Ring', category: 'Rings', price: '145', style: 'Heritage', image: null },
+  { id: 2, name: 'Habesha Pendant', category: 'Necklaces', price: '220', style: 'Heritage', image: null },
+  { id: 3, name: 'Gold Link Bracelet', category: 'Bracelets', price: '98',style: 'Modern', image: null },
+  { id: 4, name: 'Filigree Earrings', category: 'Earrings', price: '115',style: 'Modern', image: null },
+  { id: 5, name: 'Tsinat Choker', category: 'Necklaces', price: '185',style: 'Heritage', image: null },
+  { id: 6, name: 'Melkam Cuff', category: 'Bracelets', price: '130',style: 'Heritage', image: null },
+  { id: 7, name: 'Adwa Ring', category: 'Rings', price: '160', style: 'Heritage', image: null },
+  { id: 8, name: 'Sun Pendant', category: 'Necklaces', price: '175',style: 'Heritage', image: null },
+  { id: 9, name: 'Chain Earrings', category: 'Earrings', price: '90',style: 'Modern', image: null },
+  { id: 10, name: 'Selam Bangle', category: 'Bracelets', price: '110',style: 'Modern', image: null },
 ];
 
-const categories = ['All', 'Rings', 'Necklaces', 'Bracelets', 'Earrings'];
+const categories = ['All', 'Rings', 'Modern', 'Heritage', 'Necklaces', 'Bracelets', 'Earrings'];
+const filtered = active == 'All'
+? allProducts
+: allProdcuts.filter(p => p.category === active || p.style === active);
+
 
 const gradients = [
   'linear-gradient(145deg, #c8a040, #5C4209)',
@@ -27,6 +33,14 @@ const gradients = [
 
 export default function Shop() {
   const [active, setActive] = useState('All');
+  const location = useLocation();
+
+  useEffect (() => {
+    const params = new URLSearchParams(location.search);
+    const cat = params.get ('category');
+    if (cat == 'heritage') setActive ('Heritage');
+    if (cat == 'modern') setActive ('Modern');
+  } , [location]);
 
   const filtered = active === 'All'
     ? allProducts

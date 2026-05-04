@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useCart } from '../context/CartContext';
 import useInView from '../hooks/useInView';
 import anklet from '../assets/anklet.JPG'
 import armcuff from '../assets/arm cuff.JPG'
@@ -9,15 +10,16 @@ import habeshabangle from '../assets/habesha bangle.JPG'
 import habeshaset from '../assets/habesha set.JPG'
 import rings from '../assets/ringssss.JPG'
 
+
 import './Collections.css';
 
 const products = [
-  { id: 1, name: 'Anklet', category: 'Rings', price: '1450 ETB', image: anklet },
-  { id: 2, name: 'Arm Cuffs', category: 'Necklaces', price: '600 ETB', image: armcuff },
-  { id: 3, name: 'Rings', category: 'Bracelets', price: '300 ETB', image: rings },
-  { id: 4, name: 'Earrings', category: 'Earrings', price: '200 ETB', image: earrings },
-  { id: 5, name: 'Habesha Set', category: 'Necklaces', price: '3000 ETB', image: habeshaset },
-  { id: 6, name: 'Bangle', category: 'Bracelets', price: '1300 ETB', image: bangle },
+  { id: 1, name: 'Anklet', category: 'Rings', price: '1450', image: anklet },
+  { id: 2, name: 'Arm Cuffs', category: 'Necklaces', price: '600', image: armcuff },
+  { id: 3, name: 'Rings', category: 'Bracelets', price: '300', image: rings },
+  { id: 4, name: 'Earrings', category: 'Earrings', price: '200', image: earrings },
+  { id: 5, name: 'Habesha Set', category: 'Necklaces', price: '3000', image: habeshaset },
+  { id: 6, name: 'Bangle', category: 'Bracelets', price: '1300', image: bangle },
 ];
 
 const gradients = [

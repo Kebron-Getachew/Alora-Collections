@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import About from './components/About';
 import Collections from './components/Collections';
-
+import CartDrawer from './components/CartDrawer' ;
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import Shop from './components/Shop';
@@ -32,6 +32,7 @@ export default function App() {
       <div className="app">
         <Cursor />
         <Navbar />
+        <CartDrawer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
