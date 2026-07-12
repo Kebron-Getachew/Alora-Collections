@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Shop.css';
 
 const allProducts = [
@@ -17,10 +16,6 @@ const allProducts = [
 ];
 
 const categories = ['All', 'Rings', 'Modern', 'Heritage', 'Necklaces', 'Bracelets', 'Earrings'];
-const filtered = active == 'All'
-? allProducts
-: allProdcuts.filter(p => p.category === active || p.style === active);
-
 
 const gradients = [
   'linear-gradient(145deg, #c8a040, #5C4209)',
@@ -35,12 +30,12 @@ export default function Shop() {
   const [active, setActive] = useState('All');
   const location = useLocation();
 
-  useEffect (() => {
+  useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const cat = params.get ('category');
-    if (cat == 'heritage') setActive ('Heritage');
-    if (cat == 'modern') setActive ('Modern');
-  } , [location]);
+    const cat = params.get('category');
+    if (cat === 'heritage') setActive('Heritage');
+    if (cat === 'modern') setActive('Modern');
+  }, [location]);
 
   const filtered = active === 'All'
     ? allProducts
