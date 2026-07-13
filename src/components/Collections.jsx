@@ -3,9 +3,9 @@ import useInView from '../hooks/useInView';
 import { useCart } from '../context/CartContext';
 import anklet from '../assets/anklet.JPG';
 import armcuff from '../assets/arm cuff.JPG';
-import bangle from '../assets/bangle 1.JPG';
+import bangle from '../assets/bangles.JPG';
 import earrings from '../assets/earrings.JPG';
-import habeshaset from '../assets/habesha set.JPG';
+import habeshaset from '../assets/hero.jpeg';
 import rings from '../assets/ringssss.JPG';
 import './Collections.css';
 

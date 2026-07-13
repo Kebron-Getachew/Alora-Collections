@@ -32,13 +32,6 @@ export default function Hero() {
       <div className="hero-overlay-top" />
       <div className="hero-overlay-left" />
 
-      {/* Vertical side text */}
-      <div className="hero-side-text left">
-        <span> Traditional· Elegant · Luxury</span>
-      </div>
-      
-
-    
       {/* Main content */}
       <div className="hero-content">
         <div className={`hero-tag ${loaded ? 'visible' : ''}`}>
@@ -68,11 +61,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll cue */}
-      <div className={`scroll-cue ${loaded ? 'visible' : ''}`}>
-        <div className="scroll-line" />
-        <span>Scroll</span>
-      </div>
+     
 
      
     </section>
