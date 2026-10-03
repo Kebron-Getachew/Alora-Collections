@@ -1,30 +1,59 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import heroImg from '../assets/hero.jpeg';
-import logoImg from '../assets/logo.png';
 import './Hero.css';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
+  const bgRef = useRef(null);
 
+  // Trigger the entrance animations shortly after mount
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 100);
-    const onScroll = () => setScrollY(window.scrollY);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Parallax: updates the DOM directly (no re-render), once per frame,
+  // and only while the hero is on screen
+  useEffect(() => {
+    const hero = heroRef.current;
+    const bg = bgRef.current;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    let visible = true;
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      if (visible) bg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+    });
+
+    observer.observe(hero);
     window.addEventListener('scroll', onScroll, { passive: true });
+
     return () => {
-      clearTimeout(timer);
+      observer.disconnect();
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
-  const parallax = scrollY * 0.4;
-
   return (
     <section className="hero" ref={heroRef}>
-      {/* Full bleed image with parallax */}
-      <div className="hero-bg" style={{ transform: `translateY(${parallax}px)` }}>
+      {/* Full bleed image: wrapper handles parallax, image handles the slow zoom */}
+      <div className="hero-bg" ref={bgRef}>
         <img src={heroImg} alt="Alora Jewelry" className="hero-img" />
       </div>
 
