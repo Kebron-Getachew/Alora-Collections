@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import heroImg from '../assets/hero.jpeg';
 import logoImg from '../assets/logo.png';
 import './Hero.css';
@@ -51,19 +52,15 @@ export default function Hero() {
         </p>
 
         <div className={`hero-actions ${loaded ? 'visible' : ''}`}>
-          <a href="#collections" className="btn-hero-primary">
+          <Link to="/shop" className="btn-hero-primary">
             <span>Shop Now</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </a>
+          </Link>
           <a href="#about" className="btn-hero-ghost">Discover Our Story</a>
         </div>
       </div>
-
-     
-
-     
     </section>
   );
 }
