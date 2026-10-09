@@ -2,14 +2,15 @@ import React from 'react';
 import './Marquee.css';
 
 const items = [
-  'Free Shipping Over $150',
-  'Handcrafted Luxury',
-  '14K & 18K Gold',
+  'Ethiopian Traditional Pieces',
+  'Delivery across Addis Ababa',
+  'Handcrafted Pieces',
   'African Heritage',
-  'Certificate of Authenticity',
-  'Hassle-Free Returns',
-  'Bespoke Orders Welcome',
+  'Modern Collections',
+  'Custom Orders',
+ 
 ];
+
 
 export default function Marquee() {
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import { useCart } from '../context/CartContext';
 import anklet from '../assets/anklet.JPG';
@@ -56,14 +57,14 @@ export default function Collections() {
               className={`cine-card ${isActive ? 'cine-active' : ''}`}
               style={{
                 transform: `
-                  translateX(calc(${offset} * 280px))
-                  translateY(calc(${offset} * -60px))
+                  translateX(calc(${offset} * var(--card-step)))
+                  translateY(calc(${-offset} * var(--card-lift)))
                   scale(${isActive ? 1 : 0.82 - Math.abs(offset) * 0.04})
                   rotate(${offset * 4}deg)
                 `,
-                opacity: isVisible ? (isActive ? 1 : 0.75 - Math.abs(offset) * 0.1) : 0,
+                opacity: isVisible ? (isActive ? 1 : 0.9 - Math.abs(offset) * 0.15) : 0,
                 zIndex: 10 - Math.abs(offset),
-                filter: isActive ? 'none' : `brightness(${0.75 - Math.abs(offset) * 0.08})`,
+                filter: isActive ? 'none' : `brightness(${0.9 - Math.abs(offset) * 0.05})`,
                 pointerEvents: isVisible ? 'auto' : 'none',
               }}
               onClick={() => !isActive && setActive(i)}
@@ -90,10 +91,10 @@ export default function Collections() {
       </div>
 
       <div className="collections-footer">
-        <a href="/shop" className="btn-view-all">
+        <Link to="/shop" className="btn-view-all">
           <span>View All Pieces</span>
           <div className="btn-line" />
-        </a>
+        </Link>
       </div>
     </section>
   );

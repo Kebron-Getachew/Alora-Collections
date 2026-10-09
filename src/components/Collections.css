@@ -1,26 +1,42 @@
 .collections {
-  padding: 100px 0 80px;
-  background: var(--warm-dark);
+  /* BIGGER cards: lower the 400px for bigger, raise it for smaller */
+  --card-h: clamp(340px, calc(100vh - 400px), 600px);
+  --card-w: calc(var(--card-h) * 0.6667);
+  /* MORE SPREAD: gap between cards, as a fraction of card width (1 = clear gap) */
+  --card-step: calc(var(--card-w) * 0.80);
+  --card-lift: calc(var(--card-h) * 0.08);
+
+  padding: 96px 0 40px;
+  /* DARKER background: one step darker than before */
+  background: var(--cream-dark);
   overflow: hidden;
 }
 
 .collections-header {
   text-align: left;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   padding: 0 80px;
+}
+
+.collections .section-label {
+  color: var(--gold-dark);
+}
+
+.collections .section-label::before {
+  background: var(--gold-dark);
 }
 
 .collections-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(42px, 5vw, 72px);
+  font-size: clamp(34px, 4vw, 56px);
   font-weight: 300;
-  color: var(--cream);
+  color: var(--warm-dark);
   line-height: 1.1;
 }
 
 .collections-title em {
   font-style: italic;
-  color: var(--gold-light);
+  color: var(--gold-dark);
 }
 
 /* Stage */
@@ -29,14 +45,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 700px;
+  height: calc(var(--card-h) + 90px);
   perspective: 1600px;
 }
 
 /* Cards */
 .cine-card {
   position: absolute;
-  width: 400px;
+  width: var(--card-w);
   cursor: pointer;
   transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               opacity 0.55s ease,
@@ -44,9 +60,14 @@
   will-change: transform, opacity;
 }
 
+.cine-card-inner {
+  position: relative;
+  width: 100%;
+}
+
 .cine-card-img {
-  width: 400px;
-  height: 600px;
+  width: 100%;
+  height: var(--card-h);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
@@ -82,22 +103,22 @@
 }
 
 .cine-card-info {
-  padding: 16px 4px 0;
+  padding: 12px 4px 0;
   text-align: center;
 }
 
 .cine-card-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  color: var(--cream);
+  font-size: 20px;
+  color: var(--warm-dark);
   margin-bottom: 4px;
 }
 
 .cine-card-price {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 17px;
-  color: var(--gold-light);
+  font-size: 16px;
+  color: var(--gold-dark);
 }
 
 /* Controls */
@@ -106,16 +127,16 @@
   align-items: center;
   justify-content: center;
   gap: 28px;
-  margin-top: 48px;
+  margin-top: 12px;
 }
 
 .cine-btn {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(201, 168, 76, 0.35);
-  color: var(--gold-light);
-  background: rgba(26, 18, 8, 0.6);
+  border: 1px solid rgba(139, 105, 20, 0.4);
+  color: var(--gold-dark);
+  background: rgba(255, 255, 255, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,13 +158,13 @@
   font-family: 'Cinzel', serif;
   font-size: 11px;
   letter-spacing: 4px;
-  color: rgba(250, 246, 238, 0.35);
+  color: var(--text-muted);
 }
 
 /* View all */
 .collections-footer {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .btn-view-all {
@@ -155,11 +176,11 @@
   font-size: 10px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(250, 246, 238, 0.8);
+  color: var(--warm-dark);
   transition: color 0.3s;
 }
 
-.btn-view-all:hover { color: var(--gold-light); }
+.btn-view-all:hover { color: var(--gold-dark); }
 
 .btn-line {
   width: 40px;
@@ -170,29 +191,18 @@
 
 .btn-view-all:hover .btn-line { width: 80px; }
 
-@media (max-width: 768px) {
-  .collections-header { padding: 0 28px; }
-  .cine-stage { height: 440px; }
-  .cine-card { width: 240px; }
-  .cine-card-img { width: 240px; height: 320px; }
-}
-.cine-card-inner {
-  position: relative;
-  width: 100%;
-}
-
-/* Add to cart overlay */
+/* Add to cart overlay (sits on the photo, so it stays dark) */
 .cine-add-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px 16px;
+  padding: 14px 14px;
   background: linear-gradient(to top, rgba(15,10,3,0.97) 0%, rgba(15,10,3,0.4) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border-radius: 0 0 16px 16px;
 }
 
@@ -205,12 +215,12 @@
 }
 
 .cine-qty button {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
   color: var(--gold-light);
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -222,14 +232,14 @@
 }
 
 .cine-qty span {
-  width: 44px;
+  width: 40px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--cream);
   border-left: 1px solid rgba(201, 168, 76, 0.35);
   border-right: 1px solid rgba(201, 168, 76, 0.35);
-  line-height: 36px;
+  line-height: 32px;
 }
 
 /* Add to cart button */
@@ -241,7 +251,7 @@
   font-size: 10px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  padding: 13px;
+  padding: 11px;
   border: none;
   transition: background 0.3s;
   border-radius: 2px;
@@ -249,4 +259,11 @@
 
 .cine-add-btn:hover {
   background: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+  .collections {
+    --card-h: clamp(300px, 50vh, 420px);
+  }
+  .collections-header { padding: 0 28px; }
 }
