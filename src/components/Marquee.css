@@ -13,6 +13,10 @@
   animation: marquee 28s linear infinite;
 }
 
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 .marquee-item {
   font-family: 'Cinzel', serif;
   font-size: 10px;

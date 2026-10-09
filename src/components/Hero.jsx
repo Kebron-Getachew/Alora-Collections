@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/hero.jpeg';
+import heroImg from '../assets/hero.png';
 import './Hero.css';
 
 export default function Hero() {
@@ -50,7 +50,7 @@ export default function Hero() {
     };
   }, []);
 
-  return (
+    return (
     <section className="hero" ref={heroRef}>
       {/* Full bleed image: wrapper handles parallax, image handles the slow zoom */}
       <div className="hero-bg" ref={bgRef}>
@@ -79,16 +79,16 @@ export default function Hero() {
         <p className={`hero-subtitle ${loaded ? 'visible' : ''}`}>
           Where tradition becomes timeless
         </p>
+      </div>
 
-        <div className={`hero-actions ${loaded ? 'visible' : ''}`}>
-          <Link to="/shop" className="btn-hero-primary">
-            <span>Shop Now</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </Link>
-          <a href="#about" className="btn-hero-ghost">Discover Our Story</a>
-        </div>
+      {/* Shop Now: bottom right */}
+      <div className={`hero-actions ${loaded ? 'visible' : ''}`}>
+        <Link to="/shop" className="btn-hero-primary">
+          <span>Shop Now</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </Link>
       </div>
     </section>
   );

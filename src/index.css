@@ -152,12 +152,7 @@ h1, h2, h3, h4 {
 /* ── WHITE TEXT FIXES ── */
 
 /* Hero - Discover Our Story */
-.btn-hero-ghost {
-  color: rgba(250, 246, 238, 0.95) !important;
-  border-bottom-color: rgba(250, 246, 238, 0.4) !important;
-  font-family: 'Playfair Display', serif !important;
-  font-size: 18px !important;
-}
+
 
 /* Collections - View All Pieces */
 .btn-view-all {
