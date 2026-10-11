@@ -1,26 +1,35 @@
 .col-categories {
-  background: var(--warm-dark);
-  padding: 120px 80px;
-  border-top: 1px solid rgba(201, 168, 76, 0.08);
+  /* Same background as the Collections section above it, so they read as one block */
+  background: var(--cream-dark);
+  padding: 80px 80px 96px;
 }
 
 .col-cat-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
+}
+
+/* The shared .section-label is plain gold, which is too faint on a light background */
+.col-categories .section-label {
+  color: var(--gold-dark);
+}
+
+.col-categories .section-label::before {
+  background: var(--gold-dark);
 }
 
 .col-cat-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(40px, 5vw, 68px);
   font-weight: 300;
-  color: var(--cream);
+  color: var(--warm-dark);
   margin-top: 12px;
   line-height: 1.1;
 }
 
 .col-cat-title em {
   font-style: italic;
-  color: var(--gold-light);
+  color: var(--gold-dark);
 }
 
 /* Two card grid */
@@ -34,11 +43,14 @@
   position: relative;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0 24px 48px -20px rgba(60, 38, 8, 0.35);
 }
 
 .col-cat-img {
   position: relative;
-  height: 600px;
+  /* Card height follows screen height so the section fits one screen.
+     Lower the 360px for taller cards, raise it for shorter ones. */
+  height: clamp(420px, calc(100vh - 360px), 640px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -146,7 +158,7 @@
 }
 
 @media (max-width: 768px) {
-  .col-categories { padding: 80px 28px; }
+  .col-categories { padding: 64px 28px; }
   .col-cat-grid { grid-template-columns: 1fr; }
   .col-cat-img { height: 480px; }
   .col-cat-content { padding: 32px 28px; }

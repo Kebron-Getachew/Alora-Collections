@@ -19,8 +19,8 @@ function Home() {
       <Hero />
       <Marquee />
       <Collections />
+      <CollectionCategories />
       <About />
-      <CollectionCategories/>
       <Newsletter />
     </>
   );
