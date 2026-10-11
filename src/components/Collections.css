@@ -1,13 +1,15 @@
 .collections {
-  /* BIGGER cards: lower the 400px for bigger, raise it for smaller */
-  --card-h: clamp(340px, calc(100vh - 400px), 600px);
-  --card-w: calc(var(--card-h) * 0.6667);
-  /* MORE SPREAD: gap between cards, as a fraction of card width (1 = clear gap) */
-  --card-step: calc(var(--card-w) * 0.80);
-  --card-lift: calc(var(--card-h) * 0.08);
+  /* CARD SIZE: lower the 340px for bigger cards (section gets taller than the screen),
+     raise it for smaller cards. Width is derived from height (0.78 = 4:5 portrait). */
+  --card-h: clamp(380px, calc(100vh - 340px), 640px);
+  --card-w: calc(var(--card-h) * 0.78);
+  /* SPREAD: distance between card centers. 0.92 = cards just touch.
+     Raise toward 1 for gaps. The 21vw cap keeps the row inside narrow screens. */
+  --card-step: min(calc(var(--card-w) * 0.92), 21vw);
+  /* How much outer cards sag below the center one (the arc) */
+  --card-sag: calc(var(--card-h) * 0.03);
 
-  padding: 96px 0 40px;
-  /* DARKER background: one step darker than before */
+  padding: 108px 0 40px;
   background: var(--cream-dark);
   overflow: hidden;
 }
@@ -46,7 +48,6 @@
   align-items: center;
   justify-content: center;
   height: calc(var(--card-h) + 90px);
-  perspective: 1600px;
 }
 
 /* Cards */
@@ -55,8 +56,7 @@
   width: var(--card-w);
   cursor: pointer;
   transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity 0.55s ease,
-              filter 0.55s ease;
+              opacity 0.55s ease;
   will-change: transform, opacity;
 }
 
@@ -74,6 +74,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 0 24px 48px -16px rgba(60, 38, 8, 0.4);
 }
 
 .cine-card-img img {
@@ -176,11 +177,18 @@
   font-size: 10px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--warm-dark);
   transition: color 0.3s;
 }
 
-.btn-view-all:hover { color: var(--gold-dark); }
+/* index.css has an old !important rule forcing this link to cream (from when the
+   section was dark). The extra .collections prefix makes these rules win. */
+.collections .btn-view-all {
+  color: var(--warm-dark) !important;
+}
+
+.collections .btn-view-all:hover {
+  color: var(--gold-dark) !important;
+}
 
 .btn-line {
   width: 40px;
@@ -263,7 +271,13 @@
 
 @media (max-width: 768px) {
   .collections {
-    --card-h: clamp(300px, 50vh, 420px);
+    --card-h: clamp(300px, 52vh, 460px);
+    --card-step: calc(var(--card-w) * 0.7);
   }
   .collections-header { padding: 0 28px; }
+}
+
+/* Respect people who turn off animations in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  .cine-card { transition: none !important; }
 }
