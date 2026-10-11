@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import { useCart } from '../context/CartContext';
@@ -32,6 +32,22 @@ const gradients = [
 export default function Collections() {
   const [active, setActive] = useState(2);
   const [headerRef, headerVisible] = useInView(0.1);
+  const [stageRef, stageVisible] = useInView(0.2);
+
+  // entered: the stage has scrolled into view (latches on, so the spread plays once)
+  // introDone: the spread has finished, so normal arrow/click navigation is snappy
+  const [entered, setEntered] = useState(false);
+  const [introDone, setIntroDone] = useState(false);
+
+  useEffect(() => {
+    if (stageVisible) setEntered(true);
+  }, [stageVisible]);
+
+  useEffect(() => {
+    if (!entered) return;
+    const t = setTimeout(() => setIntroDone(true), 1700);
+    return () => clearTimeout(t);
+  }, [entered]);
 
   const prev = () => setActive(a => Math.max(0, a - 1));
   const next = () => setActive(a => Math.min(products.length - 1, a + 1));
@@ -45,27 +61,36 @@ export default function Collections() {
         </div>
       </div>
 
-      <div className="cine-stage">
+      <div className="cine-stage" ref={stageRef}>
         {products.map((product, i) => {
           const offset = i - active;
+          const a = Math.abs(offset);
           const isActive = offset === 0;
-          const isVisible = Math.abs(offset) <= 2;
+          const isVisible = a <= 2;
+
+          // Final resting position: an even arc, small tilt, side cards a bit smaller
+          const settled = `
+            translateX(calc(${offset} * var(--card-step)))
+            translateY(calc(${a * a} * var(--card-sag)))
+            scale(${1 - a * 0.11})
+            rotate(${offset * 3}deg)
+          `;
+
+          // Starting position: every card piled up off-screen on the right
+          const stacked = 'translateX(70vw) translateY(0px) scale(0.7) rotate(10deg)';
 
           return (
             <div
               key={product.id}
               className={`cine-card ${isActive ? 'cine-active' : ''}`}
               style={{
-                transform: `
-                  translateX(calc(${offset} * var(--card-step)))
-                  translateY(calc(${-offset} * var(--card-lift)))
-                  scale(${isActive ? 1 : 0.82 - Math.abs(offset) * 0.04})
-                  rotate(${offset * 4}deg)
-                `,
-                opacity: isVisible ? (isActive ? 1 : 0.9 - Math.abs(offset) * 0.15) : 0,
-                zIndex: 10 - Math.abs(offset),
-                filter: isActive ? 'none' : `brightness(${0.9 - Math.abs(offset) * 0.05})`,
-                pointerEvents: isVisible ? 'auto' : 'none',
+                transform: entered ? settled : stacked,
+                opacity: entered && isVisible ? 1 - a * 0.06 : 0,
+                zIndex: 10 - a,
+                pointerEvents: entered && isVisible ? 'auto' : 'none',
+                // During the intro: slower, and rightmost card leaves first (right to left)
+                transitionDuration: introDone ? '0.55s' : '1.1s',
+                transitionDelay: introDone ? '0s' : `${Math.min(4, Math.max(0, 2 - offset)) * 0.12}s`,
               }}
               onClick={() => !isActive && setActive(i)}
             >
